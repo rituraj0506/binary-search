@@ -1,0 +1,30 @@
+Given an infinite sorted array consisting 0s and 1s. The problem is to find the index of first ‘1’ in that array.
+As the array is infinite, therefore it is guaranteed that number ‘1’ will be present in the array.
+
+Input : arr[] = {0, 0, 1, 1, 1, 1}  target=1
+Output : 2
+
+approch:-
+here also array is infinite so low=0 high=1;
+while(arr[high]!=1)
+{
+low=high;
+high=high*2;
+}
+now find the first occur concept use 
+bs(arr,l,h,tar);
+int fs=-1;
+int bs(arr,l,h,tar)
+{
+while(l<=h)
+{
+mid;
+if(arr[mid]==target)
+{
+fs=arr[mid];
+h=mid-1;
+}
+}
+}
+return fs;
+}

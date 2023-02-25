@@ -6,7 +6,7 @@ Output : 2
 
 approch:-
 here also array is infinite so low=0 high=1;
-while(arr[high]!=1)
+while(key>arr[high])
 {
 low=high;
 high=high*2;

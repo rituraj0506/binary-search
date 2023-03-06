@@ -1,0 +1,51 @@
+in prob minimize max no of pages
+we search min in max no of pages anywhere
+if arr is[10,20,30,40] we search 60 in the range 0 to 100 but here atleast one book is given  
+we gave 40 max no of pages one student so start from 40 
+we dont get ans b/w 0 to 40 so we start from 40
+check valid or not
+if sum>mid we get one more student and update sum to that a[i] for new sum
+
+bool isvalid(int a[],int n,int M,int mid)
+    {
+        int student=1;
+        int sum=0;
+        for(int i=0;i<n;i++)
+        {
+            sum+=a[i];
+            if(sum>mid)
+            {
+                student++;
+                sum=a[i];
+            }
+            if(student>M)
+            return false;
+        }
+        return true;
+    }
+    
+int findPages(int a[], int n, int M) 
+    {
+        if(n<M)
+        return -1;
+    int last=0;
+    int st=*max_element(a,a+n);
+    for(int i=0;i<n;i++)
+    {
+        last+=a[i];
+    }
+    int end=last;
+    int res=-1;
+    while(st<=end)
+    {
+        int mid=st+(end-st)/2;
+        if(isvalid(a,n,M,mid))// if scheme is valid store and move left
+        {
+            res=mid;
+            end=mid-1;
+        }
+        else
+        st=mid+1;
+    }
+    return res;
+    }
